@@ -1,0 +1,37 @@
+Prompt 2 of 5: Simplified Process Flow
+
+Based on the process description for producing {{PRODUCT}} from {{FEEDSTOCK}}, create a simplified process flow with the following constraints:
+
+1. Include exactly 6 unit operations in this order:
+    1. Auxillary unit operation 1 “Feedstock Handling”: This step takes some raw feedstock input, and applies some basic treatment turning it into a treated feedstock ready for this specific process’s needs
+    2. Main unit operation 1: This first main step should convert the treated feedstock into the next intermediate form
+    3. Main unit operation 2: This main step bridges between the first intermediate form to the next, where it’s almost ready for conversion into the final form
+    4. Main unit operation 3: this last unit operation should convert the intermediate product into the final product given the specifications
+    5. Auxillary unit operation 2 “Product storage”: This step only takes the target product as input 
+    6. Auxillary unit operation 3 “Waste Disposal”: This step only takes in auxillary outputs from other unit operations related to waste as input
+2. Auxillary unit operation 1 “Feedstock Handling” provide:
+    1. an identifier: aux_unit_op_1
+    2. brief description of its function
+    3. define the input stream: raw_biomass (this is provided by a user later)
+    4. the calculation for how the raw feedstock should be treated
+    5. ignore parameters like temperature, pH)
+3. For each main unit operation, provide:
+    1. an identifier starting with “main_unit_op”
+    2. brief description of its function
+    3. Input streams (main streams and auxillary streams)
+    4. Output streams - 1 output stream will be related to the eventual target product (main stream). Other critical waste-related output streams should also be defined (auxillary streams).
+    5. First, lay out simple calculations related to the auxillary inputs, that impact the main flow coming into the node
+    6. Then, lay out the simple calculation that drive the main output flow 
+    7. Call out only the most relevant parameters affecting the volumetric flows of the operation; such as conversion rates, loading rates, extraction efficiencies, etc  
+    8. ignore parameters like temperature, pH
+4. For Auxillary unit operation 2 “Product storage”, provide:
+    1. an identifier: aux_unit_op_2
+    2. brief description of its function
+    3. associate the input to the target product output stream from main unit operation 3
+    4. this unit operation has no output and no calculation involved
+5. Auxillary unit operation 3 “Waste Disposal”, provide:
+    1. an identifier: aux_unit_op_3
+    2. brief description of its function
+    3. associate the inputs to any relevant waste-related output streams from the other main unit operations
+    4. this unit operation has no output and no calculation involved
+6. Ensure that streams are properly connected between unit operations.

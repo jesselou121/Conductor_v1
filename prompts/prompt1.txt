@@ -1,0 +1,12 @@
+Prompt 1 of 5: Process Description
+
+Provide a detailed description of the bio-manufacturing process to produce {{PRODUCT}} from {{FEEDSTOCK}}. Include the following in your description:
+
+1. An overview of the biochemical pathway involved
+2. The main unit operations of the process from feedstock to final product
+3. The trait and/or specification generally required for the final product
+4. For each unit operation 
+    1. describe the main activity that needs to occur, that impacts the volumetric flow of the process
+    2. Describe the most relevant input needed, and the auxillary inputs, critical to the unit operation 
+    3. Describe the main output that eventually turns into the target product. Also if there is a critical auxillary output, describe it. Otherwise move on  
+5. The streams moving in between each of the unit operations

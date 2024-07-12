@@ -1,0 +1,83 @@
+Prompt 4: JSON Generation
+
+Using the information from the previous steps, generate a JSON structure for the bio-manufacturing process to produce {{PRODUCT}} from {{FEEDSTOCK}}. Follow this template:
+
+{
+  "id": "unique_id",
+  "name": "Process Name",
+  "streams": [
+    {
+      "id": "stream_id",
+      "name": "Stream Name",
+      "variable_name": "stream_variable_name",
+      "unit": "unit_of_measurement",
+      "type": "main" or "auxiliary"
+    },
+    ...
+  ],
+  "nodes": [
+    {
+      "id": "node_id",
+      "name": "Unit Operation Name",
+      "type": "unit_operation_type",
+      "inputs": [
+        {
+          "stream_id": "input_stream_id",
+          "variable_name": "input_stream_variable_name",
+          "type": "main" or "auxiliary"
+        },
+        ...
+      ],
+      "outputs": [
+        {
+          "stream_id": "output_stream_id",
+          "variable_name": "output_stream_variable_name",
+          "type": "main" or "auxiliary"
+        },
+        ...
+      ],
+      "parameters": [
+        {
+          "name": "parameter_name",
+          "value": parameter_value
+        },
+        ...
+      ],
+      "auxiliary_calculations": [
+        {
+          "name": "Auxiliary Calculation Name",
+          "formula": "calculation_formula"
+        },
+        ...
+      ],
+      "main_calculations": [
+        {
+          "name": "Main Calculation Name",
+          "formula": "calculation_formula"
+        },
+        ...
+      ]
+    },
+    ...
+  ],
+  "edges": [
+    {
+      "from": "source_node_id",
+      "to": "destination_node_id",
+      "stream": {
+        "id": "stream_id",
+        "variable_name": "stream_variable_name",
+        "type": "main" or "auxiliary"
+      }
+    },
+    ...
+  ]
+}
+
+Ensure that:
+1. All streams, calculations, and parameters defined in previous steps are included in the JSON structure.
+2. Use consistent naming and proper connections between nodes.
+3. Separate auxiliary and main calculations in each node.
+4. List parameters before calculations in each node.
+5. Correctly identify each stream and calculation as either 'main' or 'auxiliary'.
+6. The edges correctly represent the flow of materials through the process, including the stream type.

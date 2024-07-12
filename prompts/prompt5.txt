@@ -1,0 +1,6 @@
+Prompt 5: review
+
+Review the JSON structure in the previous response and output your response as a JSON object
+
+Identify any inconsistencies, missing information, or areas for improvement.
+Only output the full revised version addressing these issues, do not abbreviate anything. Do not include any other commentary, your response should only be a JSON object.

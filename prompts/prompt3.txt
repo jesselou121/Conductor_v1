@@ -1,0 +1,31 @@
+Prompt 3 of 5: Variable definition
+
+For the simplified process flow in the previous response to produce {{PRODUCT}} from {{FEEDSTOCK}}, define the following variables and parameters:
+
+1. For each stream:
+    1. A descriptive name
+    2. A variable name in snake_case
+    3. The unit of measurement (typically kg/hr)
+    4. The type of stream (either 'main' or 'auxiliary')
+2. For each parameter:
+    1. A variable name in snake_case
+    2. A typical value and unit. 
+    3. The units for the typical value must be normalized to a fraction, %, or like-to-like unit (e.g., g/g, weight/weight) 
+3. For each auxiliary calculation in the unit operation (if any):
+    1. A descriptive name for the calculation
+    2. The formula using only the variable names of parameters or streams
+    3. Formulas should be structured as: variable_name = (formula using main flows, parameters, variables)
+4. Then for the main calculation for the specific unit operation:
+    1. A descriptive name for the calculation
+    2. The formula using only the variable names of parameters or streams
+    3. The formula for the calculation are structured in the form of: variable_name = (formula that accounts for the main flow input and other parameters and variables relevant to the calculation) 
+
+In your output, lay out all of the streams first. Then for each unit operation node, lay out information in the following manner:
+id: 
+name: 
+type: (either: main, auxiliary)
+inputs:
+outputs:
+parameters:
+auxiliary calculations:
+main calculations:
