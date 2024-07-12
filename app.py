@@ -18,23 +18,28 @@ except ImportError as e:
 
 st.set_page_config(page_title="TEA Generator and Visualizer", layout="wide")
 
+# Font size control
+font_size = st.sidebar.slider("Font Size", 10, 20, 14)
+
 # Custom CSS for chat-like interface
-st.markdown("""
+st.markdown(f"""
 <style>
-    .user-message {
+    .user-message {{
         background-color: #DCF8C6;
         padding: 10px;
         border-radius: 10px;
         margin: 5px 0;
-        text-align: right;
-    }
-    .assistant-message {
+        text-align: left;
+        font-size: {font_size}px;
+    }}
+    .assistant-message {{
         background-color: #E0E0E0;
         padding: 10px;
         border-radius: 10px;
         margin: 5px 0;
         text-align: left;
-    }
+        font-size: {font_size}px;
+    }}
 </style>
 """, unsafe_allow_html=True)
 
@@ -64,13 +69,15 @@ with tab1:
                                 if msg['role'] == 'user':
                                     st.markdown(f"<div class='user-message'>{msg['content']}</div>", unsafe_allow_html=True)
                                 elif msg['role'] == 'assistant':
-                                    st.markdown(f"<div class='assistant-message'>{msg['content']}</div>", unsafe_allow_html=True)
+                                    with st.spinner("Assistant is thinking..."):
+                                        st.markdown(f"<div class='assistant-message'>{msg['content']}</div>", unsafe_allow_html=True)
                                 elif msg['role'] == 'system':
                                     st.info(msg['content'])
                                 elif msg['role'] == 'error':
                                     st.error(msg['content'])
 
                 if json_output:
+                    st.subheader("Generated JSON")
                     st.json(json_output)
                     st.download_button(
                         label="Download JSON",

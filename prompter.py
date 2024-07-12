@@ -61,16 +61,17 @@ def run_tea_engine_prompts(product, feedstock):
         final_response = response.content[0].text
         try:
             json_output = json.loads(final_response)
+            yield {"role": "json_output", "content": json_output}
         except json.JSONDecodeError:
             logger.error("Final response is not a valid JSON")
-            json_output = {"error": "Invalid JSON output", "raw_response": final_response}
+            error_message = {"error": "Invalid JSON output", "raw_response": final_response}
 
-        return json_output
+            yield {"role": "json_output", "content": error_message}
 
     except Exception as e:
         logger.error(f"Error in run_tea_engine_prompts: {str(e)}")
-        st.error(f"An error occurred: {str(e)}")
-        return None
+        yield {"role": "error", "content": f"An error occurred: {str(e)}"}
+
 
 # Ensure the function is available for import
 __all__ = ['run_tea_engine_prompts']
